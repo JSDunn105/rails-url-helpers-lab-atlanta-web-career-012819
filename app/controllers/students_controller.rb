@@ -5,20 +5,18 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
-  def update
-
-
-  end
+  # def update
+  #   set_student
+  #   @student.update
+  # end
 
   def activate
      set_student
    if @student.active == false
-      @student.active = true
+      @student.update(active: true)
    else
-      @student.active = false
+      @student.update(active: false)
    end
-
-   @student.save
    redirect_to student_path
   end
 
